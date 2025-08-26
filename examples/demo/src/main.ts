@@ -19,11 +19,11 @@ const revela = new Revela({
 // - Converts class names: CardGridSection → "card-grid"
 // - Maps them to data-revela-section attributes in HTML
 
-// Clean event listener API - no need to access .discovery
+// Events API
 revela.on("visibleChange", (visible) => {
   // console.log('visible:', visible.map(v => `${v.name}#${v.index}`));
 });
 
 revela.on("topVisibleChange", (top) => {
-  console.log("top:", top ? `${top.name}#${top.index}` : "(none)");
+  // console.log("top:", top ? `${top.name}#${top.index}` : "(none)");
 });
