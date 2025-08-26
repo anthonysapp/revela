@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Revela Demo — Alpine Bridge</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body>
+    <header class="site-head">
+      <nav class="nav">
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/alpine.html">Alpine</a>
+      </nav>
+    </header>
+
+    <main id="swup" class="transition-fade">
+      <section class="hero" data-revela-section="hero">
+        <h1 class="text-6xl font-bold mb-6" data-hero="headline">Alpine Bridge</h1>
+        <p class="lead text-lg pb-8">This page shows Alpine reacting to section lifecycle.</p>
+        <div class="actions">
+          <a class="opacity-0" data-hero="cta" href="/index.html">Back home</a>
+        </div>
+      </section>
+
+      <section class="grid" data-revela-section="card-grid">
+        <article data-card>Alpine Card 1</article>
+        <article data-card>Alpine Card 2</article>
+        <article data-card>Alpine Card 3</article>
+        <article data-card>Alpine Card 4</article>
+      </section>
+      <section class="grid" data-revela-section="card-grid">
+        <article data-card>Alpine Card 1</article>
+        <article data-card>Alpine Card 2</article>
+        <article data-card>Alpine Card 3</article>
+        <article data-card>Alpine Card 4</article>
+      </section>
+
+      <!-- Alpine panel listens for 'section:reveal' bubbling events -->
+      <section style="max-width: 960px; margin: 40px auto; padding: 0 20px">
+        <div
+          x-data="{ heroRevealed:false, gridReveals:0 }"
+          @revela:reveal.window="
+               if ($event.detail?.name === 'hero') heroRevealed = true;
+               if ($event.detail?.name === 'card-grid') gridReveals++;
+             "
+          class="alpine-panel"
+          style="background: var(--panel); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 16px">
+          <h2 style="margin: 0 0 8px 0">Alpine Live State</h2>
+          <p style="margin: 6px 0">
+            Hero revealed?
+            <strong x-text="heroRevealed ? 'Yes' : 'No'"></strong>
+          </p>
+          <p style="margin: 6px 0">
+            CardGrid reveal events:
+            <strong x-text="gridReveals"></strong>
+          </p>
+          <p style="opacity: 0.7; margin-top: 8px">
+            (Each CardGrid section dispatches a
+            <code>revela:reveal</code>
+            event after its animation.)
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

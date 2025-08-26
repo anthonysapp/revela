@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Revela Demo — About</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="site-head">
+      <nav class="nav">
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/alpine.html">Alpine</a>
+      </nav>
+    </header>
+
+    <main id="swup" class="transition-fade">
+      <section class="hero" data-revela-section="hero">
+        <h1 class="text-6xl font-bold mb-6" data-hero="headline">About this Demo</h1>
+        <p class="lead text-lg pb-8">New page; sections re‑discovered on navigation.</p>
+        <div class="actions">
+          <a class="opacity-0" data-hero="cta" href="/index.html">Back home</a>
+        </div>
+      </section>
+
+      <!-- About Content Section -->
+      <section class="content-section" data-revela-section="content-reveal">
+        <div class="container">
+          <div class="content-block" data-content="block">
+            <h2>About Revela</h2>
+            <p>Revela is a powerful TypeScript library designed for creating smooth scroll-based animations and page transitions. It integrates seamlessly with modern web frameworks and provides a clean API for managing section reveals.</p>
+          </div>
+          <div class="content-block" data-content="block">
+            <h3>Key Features</h3>
+            <p>Built with performance in mind, Revela uses hardware-accelerated animations, respects user motion preferences, and provides excellent TypeScript support for better developer experience.</p>
+          </div>
+          <div class="content-block" data-content="block">
+            <h3>Easy Integration</h3>
+            <p>Whether you're building a simple landing page or a complex web application, Revela's modular architecture makes it easy to integrate scroll animations into your project.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Images -->
+      <section class="fade-images" data-revela-section="fade-images">
+        <div class="container">
+          <h2 data-fade="title">Technology Stack</h2>
+          <div class="fade-grid">
+            <div class="fade-item" data-fade="item">
+              <img src="/assets/img/about-1.jpg" alt="TypeScript" loading="lazy" />
+            </div>
+            <div class="fade-item" data-fade="item">
+              <img src="/assets/img/about-2.jpg" alt="Modern Web APIs" loading="lazy" />
+            </div>
+            <div class="fade-item" data-fade="item">
+              <img src="/assets/img/about-3.jpg" alt="Performance" loading="lazy" />
+            </div>
+            <div class="fade-item" data-fade="item">
+              <img src="/assets/img/about-4.jpg" alt="Accessibility" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid" data-revela-section="card-grid">
+        <article data-card>
+          <h4>TypeScript First</h4>
+          <p>Built with TypeScript for better developer experience</p>
+        </article>
+        <article data-card>
+          <h4>Framework Agnostic</h4>
+          <p>Works with any frontend framework or vanilla JS</p>
+        </article>
+        <article data-card>
+          <h4>Performant</h4>
+          <p>Hardware-accelerated animations with minimal overhead</p>
+        </article>
+        <article data-card>
+          <h4>Accessible</h4>
+          <p>Respects user preferences for reduced motion</p>
+        </article>
+        <article data-card>
+          <h4>Modular</h4>
+          <p>Use only the features you need</p>
+        </article>
+        <article data-card>
+          <h4>Well Documented</h4>
+          <p>Comprehensive documentation and examples</p>
+        </article>
+      </section>
+
+      <!-- Large Feature Image -->
+      <section class="large-image-hero" data-revela-section="large-image-hero">
+        <div class="large-image-container" data-large-image="container">
+          <img src="/assets/img/dev.jpg" alt="Development workflow" data-large-image="image" loading="lazy" />
+          <div class="large-image-content" data-large-image="content">
+            <h2>Developer-Friendly</h2>
+            <p>Clean APIs and excellent TypeScript support</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="cta-section" data-revela-section="cta-reveal">
+        <div class="container">
+          <div class="cta-content" data-cta="content">
+            <h2>Start Building Today</h2>
+            <p>Join developers who are creating amazing scroll experiences with Revela</p>
+            <div class="cta-actions">
+              <a href="#" class="btn-primary" data-cta="button">View Documentation</a>
+              <a href="/index.html" class="btn-secondary" data-cta="button">See Examples</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

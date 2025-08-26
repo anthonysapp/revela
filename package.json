@@ -1,0 +1,11 @@
+{
+  "name": "revela-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "build": "pnpm -r --filter ./packages/* run build",
+    "typecheck": "pnpm -r run typecheck",
+    "dev": "pnpm -C examples/demo dev"
+  }
+}
