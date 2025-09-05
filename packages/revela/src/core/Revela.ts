@@ -31,17 +31,17 @@ export class Revela {
       throw new Error("Either 'sections' or 'sectionModules' must be provided in EngineConfig");
     }
 
-    this.initializeWithSections(sections);
+    this.intialize(sections);
   }
 
-  private initializeWithSections(sections: NonNullable<EngineConfig["sections"]>) {
+  private intialize(sections: NonNullable<EngineConfig["sections"]>) {
     const registry: RegistryLike = { get: (k: string) => sections[k] };
     (this as any).discovery = new SectionDiscovery(registry as any, this.animator, this.cfg.discoverSelector ?? "[data-revela-section]", this.cfg.batchReveals);
     if (this.cfg.overlay?.enabled) this.overlay = new OverlayTransition(this.animator, this.cfg.overlay);
 
     // Auto-attach swup if provided
     if (this.cfg.swup) {
-      this.attach(this.cfg.swup);
+      this.attachSwup(this.cfg.swup);
     } else {
       // No swup - just do initial discovery
       this.discovery.discover(document, true);
@@ -50,16 +50,22 @@ export class Revela {
 
   // Event delegation methods for cleaner API
   on(event: "visibleChange", callback: (visible: SectionInstance[]) => void): void;
+
   on(event: "topVisibleChange", callback: (top: SectionInstance | undefined) => void): void;
+
   on(event: string, callback: (...args: any[]) => void): void {
     this.discovery.on(event as any, callback);
   }
-
   off(event: string, callback: (...args: any[]) => void): void {
     this.discovery.off(event as any, callback);
   }
 
-  private attach(swup: Swup) {
+  // Public method for manual attachment if needed
+  attachSwup(swup: Swup) {
+    if (this.swup) {
+      console.warn("Swup already attached to Revela instance");
+      return;
+    }
     this.swup = swup;
 
     // initial discovery
@@ -78,14 +84,5 @@ export class Revela {
     swup.hooks.on("animation:in:end", () => {
       this.overlay?.in();
     });
-  }
-
-  // Public method for manual attachment if needed
-  attachSwup(swup: Swup) {
-    if (this.swup) {
-      console.warn("Swup already attached to Revela instance");
-      return;
-    }
-    this.attach(swup);
   }
 }
